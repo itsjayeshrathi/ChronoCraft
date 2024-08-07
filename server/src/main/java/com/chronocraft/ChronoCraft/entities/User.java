@@ -27,11 +27,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min = 5, max = 20, message = "First Name must be between 5 and 20 characters long")
+    @Size(min = 3, max = 20, message = "First Name must be between 5 and 20 characters long")
     @Pattern(regexp = "^[a-zA-Z]*$", message = "First Name must not contain numbers or special characters")
     private String firstName;
 
-    @Size(min = 5, max = 20, message = "Last Name must be between 5 and 20 characters long")
+    @Size(min = 3, max = 20, message = "Last Name must be between 5 and 20 characters long")
     @Pattern(regexp = "^[a-zA-Z]*$", message = "Last Name must not contain numbers or special characters")
     private String lastName;
 
@@ -41,6 +41,7 @@ public class User {
 
     @Pattern(regexp = "^\\+?[1-9]\\d{1,14}$", message = "Invalid phone number")
     private String phoneNumber;
+    @Enumerated(value = EnumType.STRING)
     private UserRole role;
     private String password;
 
