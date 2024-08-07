@@ -1,6 +1,6 @@
-export const data = [
-  { image: "", path: "" },
-  { image: "", path: "" },
-  { image: "", path: "" },
-  { image: "", path: "" },
-];
+// export const data = [
+//   { image: "", path: "" },
+//   { image: "", path: "" },
+//   { image: "", path: "" },
+//   { image: "", path: "" },
+// ];

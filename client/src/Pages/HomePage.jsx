@@ -1,9 +1,9 @@
-import MainCarousel from "../Components/Home/MainCarousel"
+// import MainCarousel from "../Components/Home/MainCarousel"
 
 function HomePage() {
     return (
         <div>
-            <MainCarousel/>
+            {/* <MainCarousel/> */}
         </div>
     )
 }
