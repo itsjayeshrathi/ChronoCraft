@@ -1,10 +1,11 @@
 package com.chronocraft.ChronoCraft.entities;
 
-import com.chronocraft.ChronoCraft.enums.Status;
+import com.chronocraft.ChronoCraft.enums.OrderStatus;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -14,11 +15,11 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Enumerated(value = EnumType.STRING)
-    private Status status;
+    private OrderStatus status;
     private Double amount;
     @CreatedDate
-    private Date createdAt;
+    private LocalDateTime createdAt;
     @LastModifiedDate
-    private Date updateAt;
+    private LocalDateTime updatedAt;
     private Long userId;
 }

@@ -8,7 +8,10 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "watches")
@@ -27,7 +30,12 @@ public class Watch {
     private Double price;
     private Integer quantity;
     @CreatedDate
-    private Date createdAt;
+    private LocalDateTime createdAt;
     @LastModifiedDate
-    private Date updateAt;
+    private LocalDateTime updatedAt;
+    @ManyToOne
+    @JoinColumn(name="category_id")
+    private Category category;
+    @OneToMany(mappedBy = "watches", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    private List<OrderItem> orderItems = new ArrayList<>();
 }
