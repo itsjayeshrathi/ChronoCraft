@@ -6,19 +6,25 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
-@Table(name = "payements")
+@Table(name = "payments")
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "order_id", nullable = false)
     private Long orderId;
+
     private String paymentMethod;
-    private PaymentStatus staus;
+
+    @Enumerated(EnumType.STRING)
+    private PaymentStatus status;
+
     @CreatedDate
     private LocalDateTime createdAt;
+
     @LastModifiedDate
     private LocalDateTime updatedAt;
 }

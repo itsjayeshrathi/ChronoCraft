@@ -20,6 +20,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank
     @Size(min = 5, message = "Street name must contain at least 5 characters")
     private String street;
@@ -43,8 +44,14 @@ public class Address {
     @NotBlank
     @Size(min = 6, message = "Pincode must contain at least 6 characters")
     private String pincode;
+
     @CreatedDate
     private LocalDateTime createdAt;
+
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

@@ -12,8 +12,18 @@ public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @CreatedDate
     private LocalDateTime createdAt;
+
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
+
+    @ManyToOne
+    @JoinColumn(name = "watch_id", nullable = false)
+    private Watch watch;
 }
