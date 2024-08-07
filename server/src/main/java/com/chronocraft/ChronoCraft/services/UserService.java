@@ -1,4 +1,4 @@
 package com.chronocraft.ChronoCraft.services;
 
-public class UserService {
+public interface UserService {
 }
