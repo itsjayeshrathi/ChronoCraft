@@ -1,0 +1,80 @@
+.watch-carousel {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .watch-carousel__slide {
+    display: none;
+    position: relative;
+  }
+  
+  .watch-carousel__slide--active {
+    display: block;
+    animation: fade 1s;
+  }
+  
+  .watch-carousel__image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .watch-carousel__info {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .watch-carousel__title {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .watch-carousel__description {
+    font-size: 1rem;
+    margin: 5px 0 0 0;
+  }
+  
+  .watch-carousel__button {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: 0.6s ease;
+    border-radius: 3px;
+    user-select: none;
+  }
+  
+  .watch-carousel__button--prev {
+    left: 10px;
+    transform: translate(0, -50%);
+  }
+  
+  .watch-carousel__button--next {
+    right: 10px;
+    transform: translate(0, -50%);
+  }
+  
+  .watch-carousel__button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
