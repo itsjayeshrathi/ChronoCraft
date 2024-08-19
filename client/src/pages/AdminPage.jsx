@@ -1,32 +1,32 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
+// import AdminNavbar from "../components/Admin/AdminNavbar"; 
+import AdminDashboard from "../components/admin/AdminDashboard";
+import CategoryManagement from "../components/Admin/CategoryManagement";
+import CreateCategory from "../components/Admin/CreateCategory";
+import EditCategory from "../components/Admin/EditCategory";
+import OrderManagement from "../components/Admin/OrderManagement";
+import WatchManagement from "../components/Admin/WatchManagement";
+import CreateWatch from "../components/Admin/CreateWatch";
+import EditWatch from "../components/Admin/EditWatch";
 
-function AdminPage() {
+const AdminPage = () => {
   return (
-    <div className="container mt-5">
-      <h1>Admin Dashboard</h1>
-      <ul className="list-group">
-        <li className="list-group-item">
-          <Link to="/addwatch">Add New Watch</Link>
-        </li>
-        <li className="list-group-item">
-          <Link to="/admin/add-category">Add New Category</Link>
-        </li>
-        <li className="list-group-item">
-          <Link to="/admin/remove-watch">Remove Watch by ID</Link>
-        </li>
-        <li className="list-group-item">
-          <Link to="/admin/remove-category">Remove Category</Link>
-        </li>
-        <li className="list-group-item">
-          <Link to="/admin/orders">View All Orders</Link>
-        </li>
-        <li className="list-group-item">
-          <Link to="/admin/reports">Generate Reports</Link>
-        </li>
-      </ul>
+    <div>
+      <div className="p-4">
+        <Routes>
+          <Route path="/" element={<AdminDashboard />} />{" "}
+          {/* Route to AdminDashboard */}
+          <Route path="/categories" element={<CategoryManagement />} />
+          <Route path="/categories/create" element={<CreateCategory />} />
+          <Route path="/categories/edit/:id" element={<EditCategory />} />
+          <Route path="/orders" element={<OrderManagement />} />
+          <Route path="/watches" element={<WatchManagement />} />
+          <Route path="/watches/create" element={<CreateWatch />} />
+          <Route path="/watches/edit/:id" element={<EditWatch />} />
+        </Routes>
+      </div>
     </div>
   );
-}
+};
 
 export default AdminPage;

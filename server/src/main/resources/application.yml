@@ -1,0 +1,26 @@
+spring:
+ application:
+  name: ChronoCraft
+
+ jpa:
+  hibernate:
+   ddl-auto: update
+  show-sql: true
+  database: mysql
+  database-platform: org.hibernate.dialect.MySQLDialect
+
+ datasource:
+  url: jdbc:mysql://localhost:3306/chronocraft?createDatabaseIfNotExist=true
+  username: root
+  password: root
+  driver-class-name: com.mysql.cj.jdbc.Driver
+
+ data:
+  jpa:
+   repositories:
+    enabled: true
+logging:
+ level:
+  org:
+   springframework:
+    security=DEBUG:
