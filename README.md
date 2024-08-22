@@ -32,7 +32,7 @@ ChronoCraft is an eCommerce website for watches, built using Spring Boot, React.
 4. Set up Cloudinary account and add API credentials to the project
 5. Run the Spring Boot application
 6. Navigate to the frontend directory and run `npm install`
-7. Start the React development server with `npm start`
+7. Start the React development server with `npm run dev`
 
 ## Contributing
 
