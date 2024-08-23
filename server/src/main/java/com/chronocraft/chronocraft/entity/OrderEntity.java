@@ -27,11 +27,9 @@ public class OrderEntity {
     private OrderStatus orderStatus;
     private Long totalAmount;
     private UUID trackingId;
-
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserEntity userEntity;
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderEntity")
     private List<CartItemEntity> cartItemEntities;
 }

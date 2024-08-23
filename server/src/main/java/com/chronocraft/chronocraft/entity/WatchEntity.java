@@ -17,12 +17,9 @@ public class WatchEntity {
     private Long id;
     private String name;
     private Double price;
-
     @Lob
     private String description;
-
     private String imageUrl;
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "category_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)

@@ -43,6 +43,4 @@ public class CartItemEntity {
         cartItemDTO.setReturnedImage(this.watchEntity.getImageUrl());
         return cartItemDTO;
     }
-
-
 }
