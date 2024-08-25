@@ -1,4 +1,4 @@
-package com.chronocraft.chronocraft.service.customer.cart;
+package com.chronocraft.chronocraft.service.customer;
 
 import com.chronocraft.chronocraft.dto.AddWatchInCartDTO;
 import com.chronocraft.chronocraft.dto.CartItemDTO;
@@ -69,15 +69,27 @@ public class CartServiceImpl implements CartService {
         }
     }
 
+    //    @Override
+//    public OrderDTO getCartByUserId(Long userId) {
+//        OrderEntity activeOrderEntity = orderRepository.findByUserEntityIdAndOrderStatus(userId, OrderStatus.PENDING);
+//        List<CartItemDTO> cartItemDTOList = activeOrderEntity.getCartItemEntities().stream().map(CartItemEntity::getCartDTO).toList();
+//        OrderDTO orderDTO = new OrderDTO();
+//        orderDTO.setId(activeOrderEntity.getId());
+//        orderDTO.setOrderStatus(activeOrderEntity.getOrderStatus());
+//        orderDTO.setTotalAmount(activeOrderEntity.getTotalAmount());
+//        orderDTO.setCartItems(cartItemDTOList);
+//        return orderDTO;
+//    }
     @Override
     public OrderDTO getCartByUserId(Long userId) {
         OrderEntity activeOrderEntity = orderRepository.findByUserEntityIdAndOrderStatus(userId, OrderStatus.PENDING);
-        List<CartItemDTO> cartItemDTOList = activeOrderEntity.getCartItemEntities().stream().map(CartItemEntity::getCartDTO).toList();
+        List<CartItemDTO> cartItemDTOList = activeOrderEntity.getCartItemEntities().stream().map(cartItemEntity -> modelMapper.map(cartItemEntity, CartItemDTO.class)).toList();
         OrderDTO orderDTO = new OrderDTO();
         orderDTO.setId(activeOrderEntity.getId());
         orderDTO.setOrderStatus(activeOrderEntity.getOrderStatus());
         orderDTO.setTotalAmount(activeOrderEntity.getTotalAmount());
         orderDTO.setCartItems(cartItemDTOList);
+
         return orderDTO;
     }
 

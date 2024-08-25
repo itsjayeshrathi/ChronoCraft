@@ -3,7 +3,7 @@ package com.chronocraft.chronocraft.controller.customer;
 import com.chronocraft.chronocraft.dto.AddWatchInCartDTO;
 import com.chronocraft.chronocraft.dto.OrderDTO;
 import com.chronocraft.chronocraft.dto.PlaceOrderDTO;
-import com.chronocraft.chronocraft.service.customer.cart.CartService;
+import com.chronocraft.chronocraft.service.customer.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

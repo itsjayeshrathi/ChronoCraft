@@ -34,7 +34,7 @@ public class AuthController {
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
             String token = jwtTokenUtil.generateToken(userDetails);
 
-            return ResponseEntity.ok(new AuthenticationResponse(token, userDetails.getUserEntity().getRole()));
+            return ResponseEntity.ok(new AuthenticationResponse(token, userDetails.userEntity().getRole()));
         } catch (BadCredentialsException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Incorrect username or password");
         }

@@ -20,8 +20,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity userEntity = userRepository.findFirstByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("UserEntity not found with email: " + username));
+        UserEntity userEntity = userRepository.findFirstByEmail(username).orElseThrow(() -> new UsernameNotFoundException("UserEntity not found with email: " + username));
 
         return new CustomUserDetails(userEntity);
     }

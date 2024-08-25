@@ -1,4 +1,4 @@
-package com.chronocraft.chronocraft.service.customer.cart;
+package com.chronocraft.chronocraft.service.customer;
 
 import com.chronocraft.chronocraft.dto.AddWatchInCartDTO;
 import com.chronocraft.chronocraft.dto.OrderDTO;
@@ -13,7 +13,10 @@ public interface CartService {
     OrderDTO getCartByUserId(Long userId);
 
     OrderDTO increaseWatchQuantity(AddWatchInCartDTO addWatchInCartDTO);
+
     OrderDTO decreaseWatchQuantity(AddWatchInCartDTO addWatchInCartDTO);
+
     OrderDTO placeOrder(PlaceOrderDTO placeOrderDTO);
+
     List<OrderDTO> getMyPlacedOrder(Long userId);
 }

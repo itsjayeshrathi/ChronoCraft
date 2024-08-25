@@ -2,6 +2,8 @@ package com.chronocraft.chronocraft.entity;
 
 import com.chronocraft.chronocraft.dto.CartItemDTO;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
@@ -15,7 +17,9 @@ public class CartItemEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Positive(message = "Price must be positive")
     private Double price;
+    @Min(value = 1, message = "Quantity must be at least 1")
     private Integer quantity;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -32,15 +36,15 @@ public class CartItemEntity {
     @JoinColumn(name = "order_id")
     private OrderEntity orderEntity;
 
-    public CartItemDTO getCartDTO() {
-        CartItemDTO cartItemDTO = new CartItemDTO();
-        cartItemDTO.setId(this.id);
-        cartItemDTO.setPrice(this.price);
-        cartItemDTO.setWatchId(this.watchEntity.getId());
-        cartItemDTO.setQuantity(this.quantity);
-        cartItemDTO.setUserId(this.userEntity.getId());
-        cartItemDTO.setWatchName(this.watchEntity.getName());
-        cartItemDTO.setReturnedImage(this.watchEntity.getImageUrl());
-        return cartItemDTO;
-    }
+//    public CartItemDTO getCartDTO() {
+//        CartItemDTO cartItemDTO = new CartItemDTO();
+//        cartItemDTO.setId(this.id);
+//        cartItemDTO.setPrice(this.price);
+//        cartItemDTO.setWatchId(this.watchEntity.getId());
+//        cartItemDTO.setQuantity(this.quantity);
+//        cartItemDTO.setUserId(this.userEntity.getId());
+//        cartItemDTO.setWatchName(this.watchEntity.getName());
+//        cartItemDTO.setReturnedImage(this.watchEntity.getImageUrl());
+//        return cartItemDTO;
+//    }
 }

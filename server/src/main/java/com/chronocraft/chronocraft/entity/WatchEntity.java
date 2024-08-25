@@ -2,6 +2,7 @@ package com.chronocraft.chronocraft.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
@@ -16,6 +17,7 @@ public class WatchEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Positive(message = "Price must be positive")
     private Double price;
     @Lob
     private String description;
